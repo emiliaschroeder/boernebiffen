@@ -26,10 +26,10 @@
   /*Baggrundsfarver */
   --color-background-primary: #fdf5d0;
   --color-background-lilac: #d2bccc;
-  --color-background-plum: #f3b1c7;
+  --color-background-plum-200: #f3b1c7;
+  --color-background-plum-500: #8a2151;
   --color-background-green: #c1cb93;
   --color-background-blue: #b1d4cd;
-  --color-background-plum: #8a2151;
 
   /* Button text farver, farverne matches med baggrundsfarverne */
   --color-button-primary: #4a5a58;
