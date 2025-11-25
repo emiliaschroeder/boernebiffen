@@ -49,9 +49,26 @@
   /*Typografi */
   --font-display: "Cherry Bomb One", system-ui;
   --font-sans: "Montserrat", sans-serif;
+
+  /*custom cursor*/
+  --cursor-default: url(/img/cursor.svg) 10 10, auto;
+  --cursor-pointer: url(/img/cursor-hover.svg) 10 10, pointer;
 }
 
 @layer base {
+  html {
+    cursor:
+      url(/img/cursor.svg) 10 10,
+      auto;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor:
+      url(/img/cursor-hover.svg) 10 10,
+      pointer;
+  }
 }
 
 @layer components {
