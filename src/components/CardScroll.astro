@@ -1,0 +1,16 @@
+---
+const { title, img, href, alt_tekst, subtitle } = Astro.props;
+import Heading from "./Heading.astro";
+import Text from "../components/Text.astro";
+---
+
+<div class="flex flex-row gap-2">
+  <img
+    src={img}
+    alt={alt_tekst ?? title}
+    class="relative w-[267px] h-[150px] object-cover"
+  />
+
+  <Heading style="h3">{title}</Heading>
+  <Heading style="h5">{title}</Heading>
+</div>
