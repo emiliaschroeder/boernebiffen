@@ -1,0 +1,25 @@
+---
+const { title, description, submitter, align, img, bgImg, href, alt_tekst } =
+  Astro.props;
+---
+
+<div class="relative w-fit">
+  <img
+    src={img}
+    alt=""
+    class="max-w-[317px] max-h-[178px] md:max-w-[967px] md:max-h-[544px]"
+  />
+
+  <img
+    src="/img/play_button.svg"
+    alt="Play Button"
+    class="absolute inset-0 m-auto w-12 h-12 md:w-30 md:h-30 cursor-pointer"
+  />
+
+  <!-- hover billede -->
+  <!-- <img
+    src="/img/play_button_hover.svg"
+    alt="Play Button Hover"
+    class="absolute inset-0 m-auto w-12 h-12 md:w-30 md:h-30 cursor-pointer"
+  /> -->
+</div>
