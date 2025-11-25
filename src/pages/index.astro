@@ -6,11 +6,43 @@ import thumbsup from "../assets/images/thumbsup.png";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
+import HeroVideo from "../components/HeroVideo.astro";
 ---
 
-<MainLayout title="Titel">
-  <main class="container mx-auto p-4">
-    <Heading style="h1">Lav noget flot!</Heading>
+<MainLayout title="Børnebiffen">
+  <main class="grid grid-cols-6 md:grid-cols-12">
+    <div class="text-center col-span-6 md:col-span-12 mb-8 text-text-primary">
+      <Heading style="h1">Film i børnehøjde</Heading>
+    </div>
+
+    <!-- Tre knapper -->
+    <div
+      class="col-span-6 gap-4 md:col-span-12 flex justify-center mb-8 md:gap-20"
+    >
+      <Button />
+      <Button />
+      <Button />
+    </div>
+
+    <!-- Video scrollbar -->
+
+    <section class="relative col-span-6 md:col-span-12">
+      <!-- Lilla halv baggrund -->
+      <div
+        class="absolute bottom-0 left-0 w-full h-[60%] md:h-[70%] bg-background-lilac -z-10"
+      >
+      </div>
+
+      <!-- Dine videoer -->
+      <div class="flex overflow-x-auto gap-4 pb-10 md:pb-55 md:gap-10">
+        <HeroVideo img="/img/img_1.png" />
+        <HeroVideo img="/img/img_2.png" />
+        <HeroVideo img="/img/img_3.png" />
+        <HeroVideo img="/img/img_4.png" />
+        <HeroVideo img="/img/img_5.png" />
+      </div>
+    </section>
+
     <Text teksttype="brødtekst">Så bliver Anders glad:-)</Text>
 
     <Heading style="h2">Hej</Heading>
