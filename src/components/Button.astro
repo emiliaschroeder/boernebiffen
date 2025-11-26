@@ -1,11 +1,10 @@
 ---
-import Heading from "./Heading.astro";
 // Henter parametrene fra Astro.props
 const { variant = "primary", size = "medium" } = Astro.props;
 
 //Definer den styling (Tailwind classes, der gør sig gældende for alle knapper)
 const buttonStyling =
-  "rounded-2xl bg-background-blue px-16 py-4 hover:scale-110 transition-transform duration-300 font-display" +
+  "rounded-2xl py-2 md:rounded-4xl bg-background-blue px-7 md:px-16 md:py-4 hover:scale-110 transition-transform duration-300" +
   // Tilføj størrelse-specifikke classes
   {
     large: "text-4xl",
@@ -21,7 +20,8 @@ const sizeClasses = {
 };
 ---
 
-<!--Sæt classes for den pågældende knap sammen ved hjælp af Astros class:list --><!-- <button class:list={[buttonStyling]}
-  ><Heading style="h3"><slot /></Heading></button
-> -->
-<button class:list={[buttonStyling]}><slot /></button>
+<button
+  class:list={[buttonStyling]}
+  class="font-display text-[12px] md:text-[37px] text-button-primary shadow-lg"
+  ><slot /></button
+>

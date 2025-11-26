@@ -76,3 +76,13 @@
 
 @layer utilities {
 }
+
+/* Skjuler scrollbar i Chrome, Safari, Edge */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Skjuler scrollbar i Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}

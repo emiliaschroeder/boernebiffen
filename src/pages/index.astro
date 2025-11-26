@@ -17,7 +17,7 @@ import HeroVideo from "../components/HeroVideo.astro";
 
     <!-- Tre knapper -->
     <div
-      class="col-span-6 gap-4 md:col-span-12 flex justify-center mb-8 md:gap-20"
+      class="col-span-6 gap-4 md:col-span-12 flex justify-center mb-8 md:mb-20 md:gap-20"
     >
       <Button>De mindste</Button>
       <Button>De lidt større</Button>
@@ -27,11 +27,13 @@ import HeroVideo from "../components/HeroVideo.astro";
     <section class="relative col-span-6 md:col-span-12">
       <!-- Lilla halv baggrund -->
       <div
-        class="absolute bottom-95 md:bottom-50 left-0 w-full h-[20%] md:h-[50%] bg-background-lilac -z-10"
+        class="absolute bottom-100 md:bottom-50 left-0 w-full h-[22%] md:h-[50%] bg-background-lilac -z-10"
       >
       </div>
       <!-- scrollbar -->
-      <div class="flex overflow-x-auto gap-4 pb-10 md:pb-30 md:gap-10">
+      <div
+        class="flex overflow-x-auto gap-4 pb-20 md:pb-30 md:gap-10 no-scrollbar"
+      >
         <HeroVideo img="/img/img_1.png" />
         <HeroVideo img="/img/img_2.png" />
         <HeroVideo img="/img/img_3.png" />
