@@ -1,0 +1,11 @@
+---
+import ScrollKategori from "../components/ScrollKategori.astro";
+
+const sampleCards = [
+  { img: "/img/scroll-img_1.png", title: "Kort 1", subtitle: "Undertitel 1" },
+  { img: "/img/scroll-img_2.png", title: "Kort 2", subtitle: "Undertitel 2" },
+  { img: "/img/scroll-img_3.png", title: "Kort 3", subtitle: "Undertitel 3" },
+];
+---
+
+<ScrollKategori title="Min scrollkategori" items={sampleCards} />
