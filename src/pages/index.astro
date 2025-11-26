@@ -19,28 +19,51 @@ import HeroVideo from "../components/HeroVideo.astro";
     <div
       class="col-span-6 gap-4 md:col-span-12 flex justify-center mb-8 md:gap-20"
     >
-      <Button />
-      <Button />
-      <Button />
+      <Button>De mindste</Button>
+      <Button>De lidt større</Button>
+      <Button>De største</Button>
     </div>
-
-    <!-- Video scrollbar -->
 
     <section class="relative col-span-6 md:col-span-12">
       <!-- Lilla halv baggrund -->
       <div
-        class="absolute bottom-0 left-0 w-full h-[60%] md:h-[70%] bg-background-lilac -z-10"
+        class="absolute bottom-95 md:bottom-50 left-0 w-full h-[20%] md:h-[50%] bg-background-lilac -z-10"
       >
       </div>
-
-      <!-- Dine videoer -->
-      <div class="flex overflow-x-auto gap-4 pb-10 md:pb-55 md:gap-10">
+      <!-- scrollbar -->
+      <div class="flex overflow-x-auto gap-4 pb-10 md:pb-30 md:gap-10">
         <HeroVideo img="/img/img_1.png" />
         <HeroVideo img="/img/img_2.png" />
         <HeroVideo img="/img/img_3.png" />
         <HeroVideo img="/img/img_4.png" />
         <HeroVideo img="/img/img_5.png" />
       </div>
+
+      <!-- Kategori knapper -->
+      <section
+        class="mb-8 col-span-6 md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center"
+      >
+        <img
+          src="/img/plum_button.svg"
+          alt=""
+          class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110 animate-pulse-scale"
+        />
+        <img
+          src="/img/green_button.svg"
+          alt=""
+          class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110"
+        />
+        <img
+          src="/img/lilac_button.svg"
+          alt=""
+          class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110"
+        />
+        <img
+          src="/img/blue_button.svg"
+          alt=""
+          class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110"
+        />
+      </section>
     </section>
 
     <Text teksttype="brødtekst">Så bliver Anders glad:-)</Text>
