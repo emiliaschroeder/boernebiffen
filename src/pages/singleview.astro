@@ -1,0 +1,73 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Link from "../components/Link.astro";
+import { Image } from "astro:assets";
+import thumbsup from "../assets/images/thumbsup.png";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
+import HeroVideo from "../components/HeroVideo.astro";
+---
+
+<MainLayout title="Børnebiffen">
+  <main class="grid grid-cols-6 md:grid-cols-12">
+    <div
+      class="text-center col-span-6 md:col-span-12 mb-3 text-text-primary pb-7 md:pb-10"
+    >
+      <Heading style="h1">Løven og musen</Heading>
+    </div>
+
+    <section class="relative col-span-6 md:col-span-12">
+      <!-- Start på blå halv baggrund -->
+      <div
+        class="absolute bottom-0 md:bottom-0 left-0 w-full h-[60%] md:h-[70%] bg-background-blue -z-10"
+      >
+      </div>
+      <!-- Slut på blå halv baggrund -->
+
+      <!-- Start på singleviewbillede -->
+      <div
+        class="flex justify-center overflow-hidden pb-5 md:pb-10 drop-shadow-2xl"
+      >
+        <HeroVideo
+          img="/img/single-view-img.png"
+          alt="Løven og musen"
+          class="px-8 md:px-70 max-w-full h-auto pb-10 md:pb-30"
+        />
+      </div>
+      <!-- Slut på singleviewbillede -->
+
+      <!-- Info-området under singleview-billedet -->
+      <div
+        class="flex justify-center gap-20 md:gap-80 items-center w-full pb-20 md:pb-32 text-text-primary"
+      >
+        <!-- Alder -->
+        <Heading style="h3">2-5 år</Heading>
+
+        <!-- Hjerte -->
+        <button id="heartButton">
+          <img
+            id="heartIcon"
+            src="/img/heart.svg"
+            alt="Favorit"
+            class="w-8 h-8 md:w-12 h-12 cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-125"
+          />
+        </button>
+        <Heading style="h3">2 min.</Heading>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<script is:inline>
+  const btn = document.getElementById("heartButton");
+  const icon = document.getElementById("heartIcon");
+
+  btn.addEventListener("click", () => {
+    const full = "/img/heart_full.svg";
+    const empty = "/img/heart.svg";
+
+    const filename = icon.src.split("/").pop();
+    icon.src = filename === "heart_full.svg" ? empty : full;
+  });
+</script>
