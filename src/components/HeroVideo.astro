@@ -6,11 +6,15 @@ import Heading from "./Heading.astro";
 
 <div class="relative w-fit">
   <!-- Billede -->
-  <img
-    src={img}
-    alt=""
-    class="max-w-[317px] max-h-[178px] md:max-w-[967px] md:max-h-[544px] shadow-lg md:shadow-xl rounded-4xl md:rounded-[100px]"
-  />
+  <div
+    class="md:rounded-4xl md:rounded-[100px] md:shadow-lg md:overflow-hidden"
+  >
+    <img
+      src={img}
+      alt=""
+      class="max-w-[317px] max-h-[178px] md:max-w-[967px] md:max-h-[544px] shadow-lg md:shadow-xl rounded-4xl md:rounded-[100px] md:transform md:transition-transform md:duration-500 md:hover:scale-110"
+    />
+  </div>
 
   <!-- Play Button -->
   <img
@@ -26,7 +30,7 @@ import Heading from "./Heading.astro";
     class="hidden fixed inset-0 bg-transparent z-50 flex items-center justify-center p-4"
   >
     <div
-      class="relative bg-background-lilac rounded-3xl shadow-lg max-w-md w-full px-8 pt-4 pb-0"
+      class="relative bg-background-lilac rounded-4xl shadow-lg max-w-md w-full px-8 pt-4 pb-0"
     >
       <!-- Luk knap -->
       <button
@@ -49,7 +53,7 @@ import Heading from "./Heading.astro";
             <input
               type="email"
               placeholder="E-mail"
-              class="w-full px-4 py-3 border border-button-purple rounded-2xl focus:outline-none focus:ring-2 focus:ring-button-purple"
+              class="w-full px-4 py-3 border border-button-purple rounded-4xl focus:outline-none focus:ring-2 focus:ring-button-purple"
             />
           </div>
 
@@ -58,14 +62,14 @@ import Heading from "./Heading.astro";
             <input
               type="password"
               placeholder="Adgangskode"
-              class="w-full px-4 py-3 border border-button-purple rounded-2xl focus:outline-none focus:ring-2 focus:ring-button-purple"
+              class="w-full px-4 py-3 border border-button-purple rounded-4xl focus:outline-none focus:ring-2 focus:ring-button-purple"
             />
           </div>
 
           <!-- Log ind knap -->
           <button
             type="submit"
-            class="w-full px-4 py-3 bg-button-purple text-white font-semibold rounded-2xl hover:bg-button-purple transition-colors"
+            class="w-full px-4 py-3 bg-button-purple text-white font-semibold rounded-4xl hover:bg-button-purple transition-colors"
           >
             Log ind
           </button>
