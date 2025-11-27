@@ -1,5 +1,6 @@
 ---
 const { img, alt_tekst = "Hero video thumbnail" } = Astro.props;
+import Heading from "../components/Heading.astro";
 ---
 
 <a href="/singleview" class="relative w-fit cursor-pointer block group">
@@ -40,3 +41,90 @@ const { img, alt_tekst = "Hero video thumbnail" } = Astro.props;
            group-hover:opacity-100"
   />
 </a>
+
+<!-- Start på login modal -->
+<div
+  id="videoModal"
+  class="hidden fixed inset-0 bg-transparent z-50 flex items-center justify-center p-4"
+>
+  <div
+    class="relative bg-background-lilac rounded-4xl shadow-lg max-w-md w-full px-8 pt-4 pb-0"
+  >
+    <!-- Luk knap -->
+    <button
+      id="closeModal"
+      class="absolute top-4 right-4 text-text-lilac hover:text-button-purple text-2xl font-bold"
+    >
+      ✕
+    </button>
+    <!-- Login indhold -->
+    <div class="text-center pt-7 pb-0 text-button-purple">
+      <Heading style="h5"
+        >Brug dit bibliotekslogin til at se alle vores film.
+      </Heading>
+      <!-- Login form -->
+      <form class="space-y-4 pt-4">
+        <!-- Email input -->
+        <div>
+          <input
+            type="email"
+            placeholder="E-mail"
+            class="w-full px-4 py-3 border border-button-purple rounded-4xl focus:outline-none focus:ring-2 focus:ring-button-purple"
+          />
+        </div>
+        <!-- Adgangskode input -->
+        <div>
+          <input
+            type="password"
+            placeholder="Adgangskode"
+            class="w-full px-4 py-3 border border-button-purple rounded-4xl focus:outline-none focus:ring-2 focus:ring-button-purple"
+          />
+        </div>
+        <!-- Log ind knap -->
+        <button
+          id="fakeLoginButton"
+          type="submit"
+          class="w-full px-4 py-3 bg-button-purple text-white font-semibold rounded-4xl hover:bg-button-purple transition-colors"
+        >
+          Log ind
+        </button>
+      </form>
+      <!-- Logo i bunden -->
+      <div class="px-5 py-5 justify-center flex">
+        <img
+          src="/img/logo_white.svg"
+          alt="Børnebiffen logo"
+          class="w-35 md:w-50"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Slut på login modal -->
+
+<script is:inline>
+  window.addEventListener("load", () => {
+    const videoModal = document.querySelector("#videoModal");
+    const closeModal = videoModal.querySelector("#closeModal");
+    const fakeLoginBtn = videoModal.querySelector("#fakeLoginButton");
+
+    // Find alle play-knapper på hele siden
+    document.querySelectorAll(".playButton").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        videoModal.classList.remove("hidden");
+      });
+    });
+
+    // Luk modal
+    closeModal.addEventListener("click", () => {
+      videoModal.classList.add("hidden");
+    });
+
+    // Fake login
+    fakeLoginBtn.addEventListener("click", () => {
+      localStorage.setItem("logged_in", "true");
+      videoModal.classList.add("hidden");
+      window.dispatchEvent(new Event("authChange"));
+    });
+  });
+</script>
