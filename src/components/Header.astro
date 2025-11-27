@@ -16,7 +16,7 @@ import Heading from "./Heading.astro";
     </div>
 
     <!-- Mine favoritter (kun desktop) -->
-    <div class="hidden md:flex md:col-span-9 justify-end">
+    <div class="hidden md:flex md:col-span-8 justify-end">
       <button
         class="flex items-center gap-2 bg-background-plum-200 px-6 py-2 rounded-full shadow-md hover:scale-[1.02] transition"
       >
@@ -29,9 +29,9 @@ import Heading from "./Heading.astro";
 
     <!-- Søge-felt -->
     <div
-      class="col-span-3 md:col-span-3 md:col-start-12 flex justify-end md:justify-start"
+      class="col-span-3 md:col-span-9 md:col-start-11 flex justify-end md:justify-start"
     >
-      <label class="relative w-full max-w-[300px]">
+      <label class="relative w-full max-w-[300px] md:min-w-[300px]">
         <input
           type="text"
           placeholder="Søg..."
