@@ -32,13 +32,25 @@ import HeroVideo from "../components/HeroVideo.astro";
       </div>
       <!-- scrollbar -->
       <div
-        class="flex overflow-x-auto gap-4 pb-20 md:pb-30 md:gap-10 no-scrollbar"
+        class="flex overflow-x-auto gap-4 pb-20 md:pb-30 md:gap-10 no-scrollbar snap-x snap-mandatory scroll-smooth"
       >
-        <HeroVideo img="/img/img_1.png" />
-        <HeroVideo img="/img/img_2.png" />
-        <HeroVideo img="/img/img_3.png" />
-        <HeroVideo img="/img/img_4.png" />
-        <HeroVideo img="/img/img_5.png" />
+        <div
+          class="snap-start scroll-ml-[calc(50vw-158px)] md:scroll-ml-[calc(50vw-483px)]"
+        >
+          <HeroVideo img="/img/img_1.png" />
+        </div>
+        <div class="snap-center">
+          <HeroVideo img="/img/img_2.png" />
+        </div>
+        <div class="snap-center">
+          <HeroVideo img="/img/img_3.png" />
+        </div>
+        <div class="snap-center">
+          <HeroVideo img="/img/img_4.png" />
+        </div>
+        <div class="snap-center">
+          <HeroVideo img="/img/img_5.png" />
+        </div>
       </div>
 
       <!-- Kategori knapper -->
