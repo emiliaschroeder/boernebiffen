@@ -82,6 +82,7 @@ import Heading from "../components/Heading.astro";
         </div>
         <!-- Log ind knap -->
         <button
+          id="fakeLoginButton"
           type="submit"
           class="w-full px-4 py-3 bg-button-purple text-white font-semibold rounded-4xl hover:bg-button-purple transition-colors"
         >
@@ -102,18 +103,28 @@ import Heading from "../components/Heading.astro";
 <!-- Slut på login modal -->
 
 <script is:inline>
-  const playButton = document.getElementById("playButton");
-  const videoModal = document.getElementById("videoModal");
-  const closeModal = document.getElementById("closeModal");
-  playButton.addEventListener("click", () => {
-    videoModal.classList.remove("hidden");
-  });
-  closeModal.addEventListener("click", () => {
-    videoModal.classList.add("hidden");
-  });
-  videoModal.addEventListener("click", (e) => {
-    if (e.target === videoModal) {
+  window.addEventListener("load", () => {
+    const videoModal = document.querySelector("#videoModal");
+    const closeModal = videoModal.querySelector("#closeModal");
+    const fakeLoginBtn = videoModal.querySelector("#fakeLoginButton");
+
+    // Find alle play-knapper på hele siden
+    document.querySelectorAll(".playButton").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        videoModal.classList.remove("hidden");
+      });
+    });
+
+    // Luk modal
+    closeModal.addEventListener("click", () => {
       videoModal.classList.add("hidden");
-    }
+    });
+
+    // Fake login
+    fakeLoginBtn.addEventListener("click", () => {
+      localStorage.setItem("logged_in", "true");
+      videoModal.classList.add("hidden");
+      window.dispatchEvent(new Event("authChange"));
+    });
   });
 </script>
