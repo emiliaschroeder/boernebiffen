@@ -18,11 +18,14 @@ import Heading from "./Heading.astro";
     <!-- Mine favoritter (kun desktop) -->
     <div class="hidden md:flex md:col-span-8 justify-end">
       <button
+        id="authButton"
         class="flex items-center gap-2 bg-background-plum-200 px-6 py-2 rounded-full shadow-md hover:scale-[1.02] transition"
       >
-        <span class="text-text-primary"
-          ><Heading style="h5">Mine favoritter</Heading></span
-        >
+        <span id="authLabel" class="text-text-primary">
+          <Heading style="h5">Log ind</Heading>
+          <!-- START TEKST -->
+        </span>
+
         <img src="/img/plum_blub_header.svg" alt="" class="w-9 h-9" />
       </button>
     </div>
@@ -35,8 +38,9 @@ import Heading from "./Heading.astro";
         <input
           type="text"
           placeholder="Søg..."
-          class="w-full px-6 py-2 pr-10 md:py-3 md:text-[27px] rounded-full shadow-md bg-background-blue text-button-primary placeholder:text-button-primary focus:outline-none border-none"
+          class="w-full px-6 py-2 pr-10 md:py-3 md:text-[16px] rounded-full shadow-md bg-background-blue text-button-primary placeholder:text-button-primary focus:outline-none border-none"
         />
+
         <img
           src="/img/search.svg"
           alt="Søge-ikon"
@@ -46,3 +50,35 @@ import Heading from "./Heading.astro";
     </div>
   </div>
 </header>
+<script is:inline>
+  window.addEventListener("load", () => {
+    const authButton = document.getElementById("authButton");
+    const authLabel = document.getElementById("authLabel");
+
+    function updateAuthButton() {
+      const loggedIn = localStorage.getItem("logged_in") === "true";
+
+      // Opdater tekst
+      authLabel.innerHTML = loggedIn
+        ? `<Heading style="h5">Mine favoritter</Heading>`
+        : `<Heading style="h5">Log ind</Heading>`;
+
+      // Klik-opførsel
+      if (!loggedIn) {
+        // Hvis ikke logget ind → åbner modal
+        authButton.onclick = () => {
+          const modal = document.getElementById("videoModal");
+          modal?.classList.remove("hidden");
+        };
+      } else {
+        // Hvis logget ind → klik gør ingenting
+        authButton.onclick = () => {
+          // Tom funktion - meningen at den skal føre videre til "Mine favoritter" side
+        };
+      }
+    }
+
+    updateAuthButton();
+    window.addEventListener("authChange", updateAuthButton);
+  });
+</script>

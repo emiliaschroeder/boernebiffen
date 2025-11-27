@@ -4,8 +4,12 @@ import Heading from "./Heading.astro";
 ---
 
 <div class="gap-2 flex-shrink-0 w-[267px] md:w-[421px] cursor-pointer">
-  <div class="relative w-fit">
-    <img src={img} alt={alt_tekst ?? title} class="relative object-cover" />
+  <div class="relative md:rounded-4xl md:overflow-hidden">
+    <img
+      src={img}
+      alt={alt_tekst ?? title}
+      class="md:rounded-4xl md:transition-transform md:duration-500 md:ease-out md:hover:scale-110"
+    />
     <img
       src="/img/play_button.svg"
       alt="Play Button"
