@@ -1,110 +1,42 @@
 ---
-const { title, description, submitter, align, img, bgImg, href, alt_tekst } =
-  Astro.props;
-import Heading from "./Heading.astro";
+const { img, alt_tekst = "Hero video thumbnail" } = Astro.props;
 ---
 
-<div class="relative w-fit">
+<a href="/singleview" class="relative w-fit cursor-pointer block group">
   <!-- Billede -->
   <div
     class="md:rounded-4xl md:rounded-[100px] md:shadow-lg md:overflow-hidden"
   >
     <img
       src={img}
-      alt=""
-      class="max-w-[317px] max-h-[178px] md:max-w-[967px] md:max-h-[544px] shadow-lg md:shadow-xl rounded-4xl md:rounded-[100px] md:transform md:transition-transform md:duration-500 md:hover:scale-110"
+      alt={alt_tekst}
+      class="max-w-[317px] max-h-[178px]
+             md:max-w-[967px] md:max-h-[544px]
+             shadow-lg md:shadow-xl
+             rounded-4xl md:rounded-[100px]
+             md:transform md:transition-transform md:duration-500 md:hover:scale-110"
     />
   </div>
 
-  <!-- Play Button -->
+  <!-- Play Button (normal) -->
   <img
-    id="playButton"
     src="/img/play_button.svg"
     alt="Play Button"
-    class="absolute inset-0 m-auto w-12 h-12 md:w-30 md:h-30 cursor-pointer animate-pulse-scale overflow-hidden"
+    class="absolute inset-0 m-auto
+           w-12 h-12 md:w-30 md:h-30
+           pointer-events-none
+           transition-opacity duration-200
+           group-hover:opacity-0"
   />
 
-  <!-- Start på login modal -->
-  <div
-    id="videoModal"
-    class="hidden fixed inset-0 bg-transparent z-50 flex items-center justify-center p-4"
-  >
-    <div
-      class="relative bg-background-lilac rounded-4xl shadow-lg max-w-md w-full px-8 pt-4 pb-0"
-    >
-      <!-- Luk knap -->
-      <button
-        id="closeModal"
-        class="absolute top-4 right-4 text-text-lilac hover:text-button-purple text-2xl font-bold"
-      >
-        ✕
-      </button>
-
-      <!-- Login indhold -->
-      <div class="text-center pt-7 pb-0 text-button-purple">
-        <Heading style="h5"
-          >Brug dit bibliotekslogin til at se alle vores film.
-        </Heading>
-
-        <!-- Login form -->
-        <form class="space-y-4 pt-4">
-          <!-- Email input -->
-          <div>
-            <input
-              type="email"
-              placeholder="E-mail"
-              class="w-full px-4 py-3 border border-button-purple rounded-4xl focus:outline-none focus:ring-2 focus:ring-button-purple"
-            />
-          </div>
-
-          <!-- Adgangskode input -->
-          <div>
-            <input
-              type="password"
-              placeholder="Adgangskode"
-              class="w-full px-4 py-3 border border-button-purple rounded-4xl focus:outline-none focus:ring-2 focus:ring-button-purple"
-            />
-          </div>
-
-          <!-- Log ind knap -->
-          <button
-            type="submit"
-            class="w-full px-4 py-3 bg-button-purple text-white font-semibold rounded-4xl hover:bg-button-purple transition-colors"
-          >
-            Log ind
-          </button>
-        </form>
-
-        <!-- Logo i bunden -->
-        <div class="px-5 py-5 justify-center flex">
-          <img
-            src="/img/logo_white.svg"
-            alt="Børnebiffen logo"
-            class="w-35 md:w-50"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Slut på login modal -->
-</div>
-
-<script is:inline>
-  const playButton = document.getElementById("playButton");
-  const videoModal = document.getElementById("videoModal");
-  const closeModal = document.getElementById("closeModal");
-
-  playButton.addEventListener("click", () => {
-    videoModal.classList.remove("hidden");
-  });
-
-  closeModal.addEventListener("click", () => {
-    videoModal.classList.add("hidden");
-  });
-
-  videoModal.addEventListener("click", (e) => {
-    if (e.target === videoModal) {
-      videoModal.classList.add("hidden");
-    }
-  });
-</script>
+  <!-- Play Button (hover) -->
+  <img
+    src="/img/play_button_hover.svg"
+    alt="Play Button Hover"
+    class="absolute inset-0 m-auto
+           w-12 h-12 md:w-30 md:h-30
+           pointer-events-none
+           opacity-0 transition-opacity duration-200
+           group-hover:opacity-100"
+  />
+</a>

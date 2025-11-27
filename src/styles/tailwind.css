@@ -39,7 +39,7 @@
 
   /*Tekstfarver */
   --color-text-primary: #8a2151;
-  --color-text-purple: #061612;
+  --color-text-purple: #361348;
   --color-text-green: #656c4b;
   --color-text-lilac: #815e77;
   --color-text-blue: #718884;
@@ -88,20 +88,20 @@
 }
 
 @theme {
-  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  --animate-wiggle: wiggle 1.5s ease-in-out infinite;
   @keyframes wiggle {
     0%,
     100% {
-      transform: rotate(-7deg);
+      transform: rotate(-2.5deg);
     }
     50% {
-      transform: rotate(7deg);
+      transform: rotate(2.5deg);
     }
   }
 }
 
 @theme {
-  --animate-pulse-scale: pulse-scale 1.5s ease-in-out infinite;
+  --animate-pulse-scale: pulse-scale 2s ease-in-out infinite;
   @keyframes pulse-scale {
     0%,
     100% {
@@ -109,6 +109,19 @@
     }
     50% {
       transform: scale(1.05);
+    }
+  }
+}
+
+@theme {
+  --animate-pulse-small: pulse-small 2s ease-in-out infinite;
+  @keyframes pulse-small {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
     }
   }
 }
