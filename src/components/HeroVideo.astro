@@ -18,10 +18,9 @@ import Heading from "./Heading.astro";
 
   <!-- Play Button -->
   <img
-    id="playButton"
+    class="playButton absolute inset-0 m-auto w-12 h-12 md:w-30 md:h-30 cursor-pointer animate-pulse-scale overflow-hidden"
     src="/img/play_button.svg"
     alt="Play Button"
-    class="absolute inset-0 m-auto w-12 h-12 md:w-30 md:h-30 cursor-pointer animate-pulse-scale overflow-hidden"
   />
 
   <!-- Start på login modal -->
@@ -68,7 +67,8 @@ import Heading from "./Heading.astro";
 
           <!-- Log ind knap -->
           <button
-            type="submit"
+            id="fakeLoginButton"
+            type="button"
             class="w-full px-4 py-3 bg-button-purple text-white font-semibold rounded-4xl hover:bg-button-purple transition-colors"
           >
             Log ind
@@ -90,21 +90,28 @@ import Heading from "./Heading.astro";
 </div>
 
 <script is:inline>
-  const playButton = document.getElementById("playButton");
-  const videoModal = document.getElementById("videoModal");
-  const closeModal = document.getElementById("closeModal");
+  window.addEventListener("load", () => {
+    const videoModal = document.querySelector("#videoModal");
+    const closeModal = videoModal.querySelector("#closeModal");
+    const fakeLoginBtn = videoModal.querySelector("#fakeLoginButton");
 
-  playButton.addEventListener("click", () => {
-    videoModal.classList.remove("hidden");
-  });
+    // Find alle play-knapper på hele siden
+    document.querySelectorAll(".playButton").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        videoModal.classList.remove("hidden");
+      });
+    });
 
-  closeModal.addEventListener("click", () => {
-    videoModal.classList.add("hidden");
-  });
-
-  videoModal.addEventListener("click", (e) => {
-    if (e.target === videoModal) {
+    // Luk modal
+    closeModal.addEventListener("click", () => {
       videoModal.classList.add("hidden");
-    }
+    });
+
+    // Fake login
+    fakeLoginBtn.addEventListener("click", () => {
+      localStorage.setItem("logged_in", "true");
+      videoModal.classList.add("hidden");
+      window.dispatchEvent(new Event("authChange"));
+    });
   });
 </script>
