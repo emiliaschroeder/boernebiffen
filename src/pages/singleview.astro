@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Heading from "../components/Heading.astro";
 import HeroVideo from "../components/HeroVideo.astro";
+import ScrollBar from "../components/Scrollbar.astro";
 ---
 
 <MainLayout title="Børnebiffen">
@@ -49,18 +50,28 @@ import HeroVideo from "../components/HeroVideo.astro";
         <Heading style="h3">2 min.</Heading>
       </div>
     </section>
+    <!-- Start scroll-bar -->
+    <div class="col-span-6 md:col-span-12 my-10 md:my-20">
+      <ScrollBar
+        colour="lilac"
+        title="Fordi du så.."
+        blub="/img/lilac_blub.svg"
+        titlecolour="lilac"
+      />
+      <!-- Slut scroll-bar -->
+    </div>
   </main>
+
+  <script is:inline>
+    const btn = document.getElementById("heartButton");
+    const icon = document.getElementById("heartIcon");
+
+    btn.addEventListener("click", () => {
+      const full = "/img/heart_full.svg";
+      const empty = "/img/heart.svg";
+
+      const filename = icon.src.split("/").pop();
+      icon.src = filename === "heart_full.svg" ? empty : full;
+    });
+  </script>
 </MainLayout>
-
-<script is:inline>
-  const btn = document.getElementById("heartButton");
-  const icon = document.getElementById("heartIcon");
-
-  btn.addEventListener("click", () => {
-    const full = "/img/heart_full.svg";
-    const empty = "/img/heart.svg";
-
-    const filename = icon.src.split("/").pop();
-    icon.src = filename === "heart_full.svg" ? empty : full;
-  });
-</script>

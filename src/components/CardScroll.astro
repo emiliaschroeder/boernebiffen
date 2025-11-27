@@ -1,27 +1,51 @@
 ---
-const { title, img, href, alt_tekst, subtitle } = Astro.props;
+const { title, img, href = "/singleview", alt_tekst, subtitle } = Astro.props;
 import Heading from "./Heading.astro";
 ---
 
-<div class="gap-2 flex-shrink-0 w-[267px] md:w-[421px] cursor-pointer">
-  <div class="relative md:rounded-4xl md:overflow-hidden">
+<a
+  href={href}
+  class="gap-2 flex-shrink-0 w-[267px] md:w-[421px] cursor-pointer group block"
+>
+  <div class="relative w-fit">
+    <!-- Billede -->
     <img
       src={img}
       alt={alt_tekst ?? title}
-      class="md:rounded-4xl md:transition-transform md:duration-500 md:ease-out md:hover:scale-110"
+      class="relative object-cover rounded-xl md:rounded-4xl shadow-sm transition-transform duration-300 group-hover:scale-102"
     />
+
+    <!-- Play Button normal -->
     <img
       src="/img/play_button.svg"
       alt="Play Button"
       class="absolute top-3 right-3 md:top-4 md:right-4
-      w-[39px] md:w-[49px]"
+             w-[39px] md:w-[49px]
+             pointer-events-none
+             transition-opacity duration-200
+             group-hover:opacity-0"
+    />
+
+    <!-- Play Button hover -->
+    <img
+      src="/img/play_button_hover.svg"
+      alt="Play Button Hover"
+      class="absolute top-3 right-3 md:top-4 md:right-4
+             w-[39px] md:w-[49px]
+             pointer-events-none
+             opacity-0 transition-opacity duration-200
+             group-hover:opacity-100"
     />
   </div>
-  <div class="leading-none my-2 md:my-3">
+
+  <!-- Titel -->
+  <div class="leading-none my-2 md:my-3 text-text-purple">
     <Heading style="h3">{title}</Heading>
   </div>
+
+  <!-- Subtitle med ur-ikon -->
   <div class="flex place-items-center gap-1">
     <img src="/img/ur.svg" alt="tid ikon" class="w-[20px] md:w-[27px]" />
-    <Heading style="h5" />{subtitle}
+    <Heading style="h5">{subtitle}</Heading>
   </div>
-</div>
+</a>
