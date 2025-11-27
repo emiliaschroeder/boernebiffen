@@ -11,9 +11,9 @@ const colours = {
 };
 
 const titlecolours = {
-  plum: "bg-background-plum-200",
-  green: "bg-background-green",
-  lilac: "bg-background-lilac",
+  plum: "text-text-primary",
+  green: "text-text-green",
+  lilac: "text-text-lilac",
 };
 ---
 
@@ -25,7 +25,7 @@ const titlecolours = {
 
   <!-- Titel (mobil: normal, desktop: skubbet til højre) -->
   <div class="ml-10 mb-4 md:mb-6 md:ml-105">
-    <Heading style="h2" class:list={[titlecolours[titlecolour]]}
+    <Heading style="h2" stylingclasses={titlecolours[titlecolour]}
       >{title}</Heading
     >
   </div>
