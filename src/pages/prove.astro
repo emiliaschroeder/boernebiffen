@@ -1,11 +1,65 @@
 ---
 import CardScroll from "../components/CardScroll.astro";
 import Heading from "../components/Heading.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import ScrollBar from "../components/Scrollbar.astro";
 ---
 
-<CardScroll
-  title="Lillefinger mis"
-  img="/img/scroll-img_1.png"
-  alt_tekst="Et billede"
-  subtitle="4 min."
-/>
+<MainLayout>
+  <!-- <section
+    class="flex overflow-x-auto gap-4 pb-20 md:pb-30 md:gap-10 no-scrollbar"
+  >
+  <div
+        class="absolute bottom-100 md:bottom-50 left-0 w-full h-[22%] md:h-[50%] bg-background-lilac -z-10"
+      ></div>
+    <CardScroll
+      title="Cirkeline: Klodsmus"
+      img="/img/scroll-img_1.png"
+      alt_tekst="Et billede"
+      subtitle="4 min."
+    />
+    <CardScroll
+      title="Mis med de blå øjne"
+      img="/img/scroll-img_2.png"
+      alt_tekst="Et billede"
+      subtitle="11 min."
+    />
+    <CardScroll
+      title="Den kæmpestore gulerod"
+      img="/img/scroll-img_3.png"
+      alt_tekst="Et billede"
+      subtitle="6 min."
+    />
+    <CardScroll
+      title="Cirkeline: Storbyens mus"
+      img="/img/scroll-img_4.png"
+      alt_tekst="Et billede"
+      subtitle="62 min."
+    />
+    <CardScroll
+      title="Løven og musen"
+      img="/img/scroll-img_5.png"
+      alt_tekst="Et billede"
+      subtitle="62 min."
+    />
+  </section> -->
+
+  <ScrollBar
+    colour="plum"
+    title="Favoritter"
+    blub="/img/plum_blub.svg"
+    titlecolour="plum"
+  />
+  <ScrollBar
+    colour="green"
+    title="Se videre"
+    blub="/img/green_blub.svg"
+    titlecolour="green"
+  />
+  <ScrollBar
+    colour="lilac"
+    title="Fordi du så.."
+    blub="/img/lilac_blub.svg"
+    titlecolour="lilac"
+  />
+</MainLayout>

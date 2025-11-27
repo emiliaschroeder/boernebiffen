@@ -1,16 +1,23 @@
 ---
 const { title, img, href, alt_tekst, subtitle } = Astro.props;
 import Heading from "./Heading.astro";
-import Text from "../components/Text.astro";
 ---
 
-<div class="flex flex-row gap-2">
-  <img
-    src={img}
-    alt={alt_tekst ?? title}
-    class="relative w-[267px] h-[150px] object-cover"
-  />
-
-  <Heading style="h3">{title}</Heading>
-  <Heading style="h5">{title}</Heading>
+<div class="gap-2 flex-shrink-0 w-[267px] md:w-[421px] cursor-pointer">
+  <div class="relative w-fit">
+    <img src={img} alt={alt_tekst ?? title} class="relative object-cover" />
+    <img
+      src="/img/play_button.svg"
+      alt="Play Button"
+      class="absolute top-3 right-3 md:top-4 md:right-4
+      w-[39px] md:w-[49px]"
+    />
+  </div>
+  <div class="leading-none my-2 md:my-3">
+    <Heading style="h3">{title}</Heading>
+  </div>
+  <div class="flex place-items-center gap-1">
+    <img src="/img/ur.svg" alt="tid ikon" class="w-[20px] md:w-[27px]" />
+    <Heading style="h5" />{subtitle}
+  </div>
 </div>
