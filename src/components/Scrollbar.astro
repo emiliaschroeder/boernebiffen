@@ -1,0 +1,71 @@
+---
+import CardScroll from "./CardScroll.astro";
+import Heading from "./Heading.astro";
+
+const { title, blub, colour, titlecolour = "plum" } = Astro.props;
+
+const colours = {
+  plum: "bg-background-plum-200",
+  green: "bg-background-green",
+  lilac: "bg-background-lilac",
+};
+
+const titlecolours = {
+  plum: "bg-background-plum-200",
+  green: "bg-background-green",
+  lilac: "bg-background-lilac",
+};
+---
+
+<section class:list={[colours[colour]]}>
+  <!-- Blub: mobil øverst, desktop til venstre -->
+  <div class="block md:hidden mb-4">
+    <img src={blub} alt="" class="w-[126px]" />
+  </div>
+
+  <!-- Titel (mobil: normal, desktop: skubbet til højre) -->
+  <div class="ml-10 mb-4 md:mb-6 md:ml-105">
+    <Heading style="h2" class:list={[titlecolours[titlecolour]]}
+      >{title}</Heading
+    >
+  </div>
+
+  <!-- Desktop layout: blub + scrollbar side om side -->
+  <div class="md:flex md:items-start md:gap-10">
+    <!-- Blub (kun desktop) -->
+    <div class="hidden md:block">
+      <img src={blub} alt="" class="w-[700px] flex-shrink-0" />
+    </div>
+
+    <!-- Scrollbar -->
+    <div
+      class="ml-10 flex overflow-x-auto gap-4 pb-10 md:pb-15 md:gap-10 no-scrollbar"
+    >
+      <CardScroll
+        title="Cirkeline: Klodsmus"
+        img="/img/scroll-img_1.png"
+        subtitle="4 min."
+      />
+      <CardScroll
+        title="Mis med de blå øjne"
+        img="/img/scroll-img_2.png"
+        subtitle="11 min."
+      />
+      <CardScroll
+        title="Den kæmpestore gulerod"
+        img="/img/scroll-img_3.png"
+        subtitle="6 min."
+      />
+      <CardScroll
+        title="Cirkeline: Storbyens mus"
+        img="/img/scroll-img_4.png"
+        subtitle="62 min."
+      />
+      <CardScroll
+        title="Løven og musen"
+        img="/img/scroll-img_5.png"
+        subtitle="62 min."
+      />
+    </div>
+  </div>
+</section>
