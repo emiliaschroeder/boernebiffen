@@ -58,21 +58,27 @@ import ScrollBar from "../components/Scrollbar.astro";
       <section
         class="mb-5 md:mb-8 col-span-6 md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center"
       >
-        <img
-          src="/img/plum_button.svg"
-          alt=""
-          class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110 animate-wiggle"
-        />
-        <img
-          src="/img/green_button.svg"
-          alt=""
-          class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110 animate-wiggle"
-        />
-        <img
-          src="/img/lilac_button.svg"
-          alt=""
-          class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110 animate-wiggle"
-        />
+        <a href="#favoritter">
+          <img
+            src="/img/plum_button.svg"
+            alt=""
+            class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110 animate-wiggle"
+          />
+        </a>
+        <a href="#sevidere">
+          <img
+            src="/img/green_button.svg"
+            alt=""
+            class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110 animate-wiggle"
+          />
+        </a>
+        <a href="#fordidusaa">
+          <img
+            src="/img/lilac_button.svg"
+            alt=""
+            class="max-w-40 md:max-w-full cursor-pointer transition-transform duration-300 md:hover:scale-110 animate-wiggle"
+          />
+        </a>
         <img
           src="/img/blue_button.svg"
           alt=""
@@ -83,25 +89,30 @@ import ScrollBar from "../components/Scrollbar.astro";
 
     <div class="col-span-6 md:col-span-12">
       <!-- SCROLLBAR SEKTION -->
-      <ScrollBar
-        colour="plum"
-        title="Favoritter"
-        blub="/img/plum_blub.svg"
-        titlecolour="plum"
-      />
-
-      <ScrollBar
-        colour="green"
-        title="Se videre"
-        blub="/img/green_blub.svg"
-        titlecolour="green"
-      />
-      <ScrollBar
-        colour="lilac"
-        title="Fordi du så.."
-        blub="/img/lilac_blub.svg"
-        titlecolour="lilac"
-      />
+      <div id="favoritter">
+        <ScrollBar
+          colour="plum"
+          title="Favoritter"
+          blub="/img/plum_blub.svg"
+          titlecolour="plum"
+        />
+      </div>
+      <div id="sevidere">
+        <ScrollBar
+          colour="green"
+          title="Se videre"
+          blub="/img/green_blub.svg"
+          titlecolour="green"
+        />
+      </div>
+      <div id="fordidusaa">
+        <ScrollBar
+          colour="lilac"
+          title="Fordi du så.."
+          blub="/img/lilac_blub.svg"
+          titlecolour="lilac"
+        />
+      </div>
     </div>
   </main>
 </MainLayout>
