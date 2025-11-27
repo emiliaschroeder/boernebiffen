@@ -17,55 +17,62 @@ const titlecolours = {
 };
 ---
 
-<section class:list={[colours[colour]]}>
-  <!-- Blub: mobil øverst, desktop til venstre -->
-  <div class="block md:hidden mb-4">
+<section class="relative overflow-visible py-6 md:py-8">
+  <!-- Mobil blub -->
+  <div class="block md:hidden relative">
+    <!-- BAGGRUND kun for mobil placering -->
+    <div
+      class:list={[colours[colour]]}
+      class="absolute bottom-0 md:bottom-0 left-0 w-full h-[50%] md:h-[50%] -z-10"
+    >
+    </div>
     <img src={blub} alt="" class="w-[126px]" />
   </div>
-
-  <!-- Titel (mobil: normal, desktop: skubbet til højre) -->
-  <div class="ml-10 mb-4 md:mb-6 md:ml-105">
-    <Heading style="h2" stylingclasses={titlecolours[titlecolour]}
-      >{title}</Heading
-    >
-  </div>
-
-  <!-- Desktop layout: blub + scrollbar side om side -->
-  <div class="md:flex md:items-start md:gap-10">
-    <!-- Blub (kun desktop) -->
-    <div class="hidden md:block">
-      <img src={blub} alt="" class="w-[700px] flex-shrink-0" />
+  <section class:list={[colours[colour]]}>
+    <!-- Titel (mobil: normal, desktop: skubbet til højre) -->
+    <div class="ml-10 mb-4 md:mb-6 md:ml-105">
+      <Heading style="h2" stylingclasses={titlecolours[titlecolour]}
+        >{title}</Heading
+      >
     </div>
 
-    <!-- Scrollbar -->
-    <div
-      class="ml-10 flex overflow-x-auto gap-4 pb-10 md:pb-15 md:gap-10 no-scrollbar"
-    >
-      <CardScroll
-        title="Cirkeline: Klodsmus"
-        img="/img/scroll-img_1.png"
-        subtitle="4 min."
-      />
-      <CardScroll
-        title="Mis med de blå øjne"
-        img="/img/scroll-img_2.png"
-        subtitle="11 min."
-      />
-      <CardScroll
-        title="Den kæmpestore gulerod"
-        img="/img/scroll-img_3.png"
-        subtitle="6 min."
-      />
-      <CardScroll
-        title="Cirkeline: Storbyens mus"
-        img="/img/scroll-img_4.png"
-        subtitle="62 min."
-      />
-      <CardScroll
-        title="Løven og musen"
-        img="/img/scroll-img_5.png"
-        subtitle="62 min."
-      />
+    <!-- Desktop layout: blub + scrollbar side om side -->
+    <div class="md:flex md:items-start md:gap-10 pb-10">
+      <!-- Blub (kun desktop) -->
+      <div class="hidden md:block">
+        <img src={blub} alt="" class="w-[700px] flex-shrink-0" />
+      </div>
+
+      <!-- Scrollbar -->
+      <div
+        class="ml-10 flex overflow-x-auto gap-4 pb-10 md:pb-15 md:gap-10 no-scrollbar"
+      >
+        <CardScroll
+          title="Cirkeline: Klodsmus"
+          img="/img/scroll-img_1.png"
+          subtitle="4 min."
+        />
+        <CardScroll
+          title="Mis med de blå øjne"
+          img="/img/scroll-img_2.png"
+          subtitle="11 min."
+        />
+        <CardScroll
+          title="Den kæmpestore gulerod"
+          img="/img/scroll-img_3.png"
+          subtitle="6 min."
+        />
+        <CardScroll
+          title="Cirkeline: Storbyens mus"
+          img="/img/scroll-img_4.png"
+          subtitle="62 min."
+        />
+        <CardScroll
+          title="Løven og musen"
+          img="/img/scroll-img_5.png"
+          subtitle="62 min."
+        />
+      </div>
     </div>
-  </div>
+  </section>
 </section>
