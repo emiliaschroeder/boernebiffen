@@ -7,6 +7,7 @@ import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
 import HeroVideo from "../components/HeroVideo.astro";
+import ScrollBar from "../components/Scrollbar.astro";
 ---
 
 <MainLayout title="Børnebiffen">
@@ -79,6 +80,29 @@ import HeroVideo from "../components/HeroVideo.astro";
         />
       </section>
     </section>
+
+    <div class="col-span-6 md:col-span-12">
+      <!-- SCROLLBAR SEKTION -->
+      <ScrollBar
+        colour="plum"
+        title="Favoritter"
+        blub="/img/plum_blub.svg"
+        titlecolour="plum"
+      />
+
+      <ScrollBar
+        colour="green"
+        title="Se videre"
+        blub="/img/green_blub.svg"
+        titlecolour="green"
+      />
+      <ScrollBar
+        colour="lilac"
+        title="Fordi du så.."
+        blub="/img/lilac_blub.svg"
+        titlecolour="lilac"
+      />
+    </div>
   </main>
 </MainLayout>
 
