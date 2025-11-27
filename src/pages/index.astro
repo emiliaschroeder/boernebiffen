@@ -32,14 +32,14 @@ import HeroVideo from "../components/HeroVideo.astro";
       </div>
       <!-- scrollbar -->
       <div
-        class="flex overflow-x-auto gap-4 pb-20 md:pb-30 md:gap-10 no-scrollbar snap-x snap-mandatory scroll-smooth"
+        id="heroScroll"
+        class="flex overflow-x-auto gap-4 pb-20 md:pb-30 md:gap-10 no-scrollbar snap-x snap-mandatory"
+        style="scroll-behavior: smooth;"
       >
-        <div
-          class="snap-start scroll-ml-[calc(50vw-158px)] md:scroll-ml-[calc(50vw-483px)]"
-        >
+        <div class="snap-center">
           <HeroVideo img="/img/img_1.png" />
         </div>
-        <div class="snap-center">
+        <div class="snap-center" id="centerImage">
           <HeroVideo img="/img/img_2.png" />
         </div>
         <div class="snap-center">
@@ -81,3 +81,16 @@ import HeroVideo from "../components/HeroVideo.astro";
     </section>
   </main>
 </MainLayout>
+
+<script is:inline>
+  window.addEventListener("load", () => {
+    const centerImage = document.getElementById("centerImage");
+    if (centerImage) {
+      centerImage.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  });
+</script>
